@@ -1,0 +1,32 @@
+/*
+    ARDUINO SENSOR DE VIBRACIÓN CON SENSOR SW420
+    AUTOR : JOSE MARIA MENDEZ RUIZ
+    ABRIL 2022
+    CODIGO LIBRE PARA UTILIZAR COMO QUIERAS
+*/
+
+// DECLARAMOS LAS VARIABLES QUE VAMOS A UTILIZAR
+int Pin_Led = 0;      // La placa MH ATtiny88 tiene el pin0 para el led integrado en la placa, a diferencia del Arduino nano, Mega y Uno que usan el pin 13
+int Pin_Sensor = 5;  // INDICAMOS EL PIN POR DONDE RECIBIMOS LA SEÑAL DEL SENSOR DE VIBRACIÓN
+ 
+void setup()
+{
+  // DECLARAMOS LOS MODOS DE LOS PINES UTILIZADOS
+  pinMode(Pin_Led, OUTPUT);
+  pinMode(Pin_Sensor , INPUT);
+}
+ 
+void loop()
+{
+  int sensor = digitalRead(Pin_Sensor); // Recogemos la señal que se recibe por el pin del sensor
+ 
+  if (sensor == HIGH)
+  {
+    digitalWrite(Pin_Led, HIGH);
+    delay(1000); // Esperamos un segundo cada vez que se detecta vibración, esto podemos cambiarlo por el valor que necesitemos
+  }
+  else
+  {
+    digitalWrite(Pin_Led, LOW);
+  }
+}
