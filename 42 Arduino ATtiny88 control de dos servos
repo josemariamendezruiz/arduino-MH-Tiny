@@ -1,0 +1,43 @@
+/*
+    ARDUINO TINY88 CONTROL DE DOS SERVOS
+    AUTOR : JOSE MARIA MENDEZ RUIZ
+    SEPTIEMBRE 2022
+    CODIGO LIBRE PARA UTILIZAR COMO QUIERAS
+
+ */
+ 
+#include <Servo.h>              // librería para los servos
+
+// DECLARAMOS LOS PINES QUE VAMOS A UTILIZAR
+#define PIN_servo_x 6  // pin con PWM
+#define PIN_servo_y 9  // pin con PWM
+
+Servo motor_x;                                                        // creamos el objeto que manejara el eje X
+Servo motor_y;                                                        // creamos el objeto que manejara el eje Y
+
+void setup() {
+
+  motor_x.attach(PIN_servo_x);     // le asignamos al servo_x los valores del PIN que controla el eje X
+  motor_y.attach(PIN_servo_y);     // le asignamos al servo_x los valores del PIN que controla el eje Y
+  
+}
+
+void loop(){
+
+  motor_x.write( 0 ); // le pasamos los grados al servo del eje X
+  motor_y.write( 180 ); // le pasamos los grados al servo del eje Y
+  delay(1000);
+  motor_x.write( 45 ); // le pasamos los grados al servo del eje X
+  motor_y.write( 135 ); // le pasamos los grados al servo del eje Y
+  delay(1000);
+  motor_x.write( 90 ); // le pasamos los grados al servo del eje X
+  motor_y.write( 90 ); // le pasamos los grados al servo del eje Y
+  delay(1000);
+  motor_x.write( 135 ); // le pasamos los grados al servo del eje X
+  motor_y.write( 45 ); // le pasamos los grados al servo del eje Y
+  delay(1000);
+  motor_x.write( 180 ); // le pasamos los grados al servo del eje X
+  motor_y.write( 0 ); // le pasamos los grados al servo del eje Y
+  delay(1000);
+   
+}
